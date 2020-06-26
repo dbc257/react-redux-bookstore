@@ -1,0 +1,7 @@
+export const ADD = "ADD";
+export const REMOVE = "REMOVE";
+export const ADDGLOBALBOOKS = "ADDGLOBALBOOKS";
+export const BOOKSLOADED = "BOOKSLOADED";
+export const ADDCARTBOOKS = "ADDCARTBOOKS";
+export const REMOVECARTBOOKS = "REMOVECARTBOOKS";
+export const AUTHENTICATED = "AUTHENTICATED";

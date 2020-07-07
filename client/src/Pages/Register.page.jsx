@@ -1,14 +1,12 @@
 // import React from "react";
-import React, { useState } from "react";
 // import { connect } from "react-redux";
 // import * as actionCreators from "../store/creators/actionCreators";
 // import BootstrapCard from "./components/BootstrapCard.component";
 // import Button from "react-bootstrap/Button";
+import React, { useState } from "react";
 
 function AddUser(props) {
   const [user, setUser] = useState({});
-  //const [username, setUsername] = useState("");
-  // const[password, setPassword] = useState("")
 
   function handleRegister(e) {
     setUser({
@@ -16,10 +14,6 @@ function AddUser(props) {
       [e.target.name]: e.target.value,
     });
   }
-
-  // function handleRegister(e) {
-  //   setUsername(e.target.value);
-  // }
 
   function handleRegisterPost() {
     fetch("http://localhost:3001/register", {
@@ -36,27 +30,6 @@ function AddUser(props) {
         props.history.push("/Login");
       });
   }
-
-  // function handleRegisterPost() {
-  //   fetchAddUser();
-  // }
-
-  // const handleLoginPost = () => {
-  //   console.log(username);
-  //   fetch("http://localhost:3001/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(username),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       alert(response.message);
-  //       // props.history.push("/");
-  //     });
-  //   props.onAuthenticated(true);
-  // };
 
   return (
     <div>
@@ -81,3 +54,30 @@ function AddUser(props) {
 }
 
 export default AddUser;
+//const [username, setUsername] = useState("");
+// const[password, setPassword] = useState("")
+
+// function handleRegister(e) {
+//   setUsername(e.target.value);
+// }
+
+// function handleRegisterPost() {
+//   fetchAddUser();
+// }
+
+// const handleLoginPost = () => {
+//   console.log(username);
+//   fetch("http://localhost:3001/login", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(username),
+//   })
+//     .then((res) => res.json())
+//     .then((response) => {
+//       alert(response.message);
+//       // props.history.push("/");
+//     });
+//   props.onAuthenticated(true);
+// };

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 var jwt = require("jsonwebtoken");
+var bcrypt = require("bcryptjs");
 const models = require("./models");
 const bodyParser = require("body-parser");
 
@@ -45,11 +46,6 @@ app.get("/api/books", (req, res) => {
   let books = [{ bookId: 1, name: "Atomic Habits" }];
   res.json(books);
 });
-
-//api/profile (protected resource)
-// app.get("/api/profile", auth, (req, res) => {
-//   res.json({ message: "Profile Resource" });
-// });
 
 // api/login POST (username, password)
 app.post("/api/login", (req, res) => {

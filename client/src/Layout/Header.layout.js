@@ -4,25 +4,16 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import * as actionCreators from "../store/creators/actionCreators";
 import { LinkContainer } from "react-router-bootstrap";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
 import logo from "./logo-bootstrap.svg";
-// import NavbarBrand from "react-bootstrap/NavbarBrand";
-// import "./App.css";
-// import logo from "./logo.svg";
 import { connect } from "react-redux";
-// import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
-  // console.log(props);
   return (
     <Navbar bg="dark" variant="dark">
       <LinkContainer to="/">
         <Navbar.Brand>
           <img
-            //  src="/logo192.png
             src={logo}
             width="30"
             height="30"
@@ -123,3 +114,11 @@ export default connect(mapStateToProps, null)(Header);
 // <Nav.Link>Home</Nav.Link>
 // </LinkContainer>}
 // {props.isLoggedIn ? <h1>Logged In</h1> : <h1>Not Logged In</h1>}
+
+// import * as actionCreators from "../store/creators/actionCreators";
+// import Form from "react-bootstrap/Form";
+// import FormControl from "react-bootstrap/FormControl";
+// import NavbarBrand from "react-bootstrap/NavbarBrand";
+// import "./App.css";
+// import logo from "./logo.svg";
+// import { NavLink } from "react-router-dom";

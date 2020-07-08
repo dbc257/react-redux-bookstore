@@ -3,43 +3,14 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
-// import { LinkContainer } from "react-router-bootstrap";
-// import * as actionTypes from "./store/actions/actionTypes";
-// import CardDeck from "react-bootstrap/CardDeck";
-// import Books from "./Pages/Books.page";
-// import Button from "react-bootstrap/Button";
+
 const BootstrapCardCart = (props) => {
-  // const deletePost = () => {
-  //   let id = props.books.id;
-  //   fetch("http://localhost:3001/delete", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ id: id }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       alert(response.message);
-  //       props.fetchBooks();
-  //     });
-  // };
-
-  // const handleAddCartBook = () => {
-  //   let cartBook = props.books;
-  //   console.log(props);
-  //   props.onIncrement();
-  //   props.onAddCartBooks(cartBook);
-  // };
-
   const handleRemoveCartBook = () => {
     let cartBook = props.books;
     console.log(props);
     props.onDecrement();
     props.onRemoveCartBooks(cartBook);
   };
-
-  // const editLink = "/Edit/" + props.books.id;
 
   return (
     <>
@@ -81,19 +52,13 @@ const BootstrapCardCart = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    //cartBooks: state.cartRed.cartBooks,
-    // books: state.booksRed.books,
     isLoggedIn: state.loginRed.isLoggedIn,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onIncrement: () => dispatch(actionCreators.incrementCounter()),
     onDecrement: () => dispatch(actionCreators.decrementCounter()),
-    // onAuthenticated: () => dispatch(actionCreators.authenticated()),
-    //onAddGlobalBooks: (books) => dispatch(actionCreators.addGlobalBooks(books)),
-    //onAddCartBooks: (cartBooks) => dispatch(actionCreators.addCartBooks(cartBooks)),
     onRemoveCartBooks: (cartBooks) =>
       dispatch(actionCreators.removeCartBooks(cartBooks)),
   };

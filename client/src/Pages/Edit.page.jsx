@@ -14,7 +14,6 @@ function Edit(props) {
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         alert(response.message);
         props.history.push("/Home");
       });
@@ -31,10 +30,9 @@ function Edit(props) {
     fetch("http://localhost:3001/edit/" + props.match.params.id)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setBook(result);
       });
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <div>

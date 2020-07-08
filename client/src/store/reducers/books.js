@@ -5,14 +5,29 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  if (action.type == actionTypes.ADDGLOBALBOOKS) {
-    return {
-      ...state,
-      books: state.books.concat(action.payload),
-    };
+  switch (action.type) {
+    case actionTypes.ADDGLOBALBOOKS: {
+      return {
+        ...state,
+        books: state.books.concat(action.payload),
+      };
+    }
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export default reducer;
+
+// const reducer = (state = initialState, action) => {
+//   if (action.type == actionTypes.ADDGLOBALBOOKS) {
+//     return {
+//       ...state,
+//       books: state.books.concat(action.payload),
+//     };
+//   }
+
+//   return state;
+// };
+
+// export default reducer;

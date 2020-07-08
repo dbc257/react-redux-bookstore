@@ -1,16 +1,12 @@
-// import React from "react";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
 import axios from "axios";
 import { setAuthenticationHeader } from "../utils/Auth";
-//import { LinkContainer } from "react-router-bootstrap";
-// import BootstrapCard from "./components/BootstrapCard.component";
-// import Button from "react-bootstrap/Button";
 
 function Login(props) {
   const [user, setUser] = useState({});
-  const [guestUser, setGuestUser] = useState({
+  const [guestUser] = useState({
     username: "David",
     password: "1234",
   });
@@ -19,7 +15,6 @@ function Login(props) {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
-      // setUsername(e.target.value);
     });
   }
 
@@ -48,14 +43,12 @@ function Login(props) {
   }
 
   function handleLoginPost() {
-    // axios POST request
     axios
       .post("http://localhost:3001/api/login", {
         username: user.username,
         password: user.password,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
           const token = response.data.token;
           localStorage.setItem("jsonwebtoken", token);
@@ -74,50 +67,6 @@ function Login(props) {
         }
       });
   }
-  //   fetch("http://localhost:3001/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       if (response.success) {
-  //         props.onAuthenticated(true);
-  //         alert(response.message);
-  //         props.history.push("/");
-  //       } else {
-  //         alert(response.message);
-  //         setUser({
-  //           ...user,
-  //           password: "",
-  //         });
-  //       }
-  //     });
-  // }
-
-  // const handleJWTLogin = () => {
-  //   // perform a fetch request and pass username and password
-  //   // to the server
-
-  //   fetch("http://localhost:3001/api/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       if (result.success) {
-  //         // save the token in local storage
-  //         localStorage.setItem("jsonwebtoken", result.token);
-  //       } else {
-  //         // print out a message saying login failed
-  //       }
-  //     });
-  // };
 
   return (
     <div>
@@ -140,8 +89,6 @@ function Login(props) {
         <button onClick={handleLoginPost}>Login</button>
       </div>
       <div>
-        {/* <input type="text" value="David" name="username" required />
-        <input type="password" value="1234" name="password" required /> */}
         <button onClick={guestLoginPost}>Guest Login</button>
       </div>
     </div>
@@ -187,3 +134,52 @@ export default connect(null, mapDispatchToProps)(Login);
 
 // const [username, setUsername] = useState("");
 // const [password, setPassword] = useState("");
+
+//   fetch("http://localhost:3001/login", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(user),
+//   })
+//     .then((res) => res.json())
+//     .then((response) => {
+//       if (response.success) {
+//         props.onAuthenticated(true);
+//         alert(response.message);
+//         props.history.push("/");
+//       } else {
+//         alert(response.message);
+//         setUser({
+//           ...user,
+//           password: "",
+//         });
+//       }
+//     });
+// }
+
+// const handleJWTLogin = () => {
+//   // perform a fetch request and pass username and password
+//   // to the server
+
+//   fetch("http://localhost:3001/api/login", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(user),
+//   })
+//     .then((response) => response.json())
+//     .then((result) => {
+//       if (result.success) {
+//         // save the token in local storage
+//         localStorage.setItem("jsonwebtoken", result.token);
+//       } else {
+//         // print out a message saying login failed
+//       }
+//     });
+// };
+
+//import { LinkContainer } from "react-router-bootstrap";
+// import BootstrapCard from "./components/BootstrapCard.component";
+// import Button from "react-bootstrap/Button";

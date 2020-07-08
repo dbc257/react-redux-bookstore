@@ -1,17 +1,11 @@
-//import React from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
 import { LinkContainer } from "react-router-bootstrap";
-import React, { useState } from "react";
-// import * as actionTypes from "./store/actions/actionTypes";
-// import CardDeck from "react-bootstrap/CardDeck";
-// import Books from "./Pages/Books.page";
-// import Button from "react-bootstrap/Button";
-const BootstrapCardNoAuth = (props) => {
-  const [books, setBooks] = useState({});
 
+const BootstrapCardNoAuth = (props) => {
   const deletePost = () => {
     let id = props.books.id;
     fetch("http://localhost:3001/delete", {
@@ -28,42 +22,11 @@ const BootstrapCardNoAuth = (props) => {
       });
   };
 
-  // const addBookToCart = () => {
-  //   let id = props.books.id;
-  //   fetch("http://localhost:3001/cart", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ id: id }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       alert(response.message);
-  //       props.fetchCartBooks();
-  //     });
-  // };
-  // let fetchBooks = () => {
-  //   fetch("http://localhost:3001/")
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       setBooks(result);
-  //       props.onAddGlobalBooks(result);
-  //     });
-  // };
   const handleAddCartBook = () => {
     let cartBook = props.books;
-    console.log(props);
     props.onIncrement();
     props.onAddCartBooks(cartBook);
   };
-
-  // const handleRemoveCartBook = () => {
-  //   let cartBook = props.books;
-  //   console.log(props.books);
-  //   props.onDecrement();
-  //   props.onRemoveCartBooks(cartBook);
-  // };
 
   const editLink = "/Edit/" + props.books.id;
 
@@ -91,14 +54,8 @@ const BootstrapCardNoAuth = (props) => {
             <Card.Footer>
               <small className="text-muted">
                 <Nav.Link>
-                  {/* <button onClick={() => props.onIncrement()}> */}
                   <button onClick={handleAddCartBook}>Add To Cart</button>
                 </Nav.Link>
-                {/* <Nav.Link>
-                  <button onClick={handleRemoveCartBook}>
-                    Remove From Cart
-                  </button>
-                </Nav.Link> */}
                 <LinkContainer to={editLink}>
                   <Nav.Link>
                     <button>Edit Book</button>
@@ -118,8 +75,6 @@ const BootstrapCardNoAuth = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    //cartBooks: state.cartRed.cartBooks,
-    //books: state.booksRed.books,
     isLoggedIn: state.loginRed.isLoggedIn,
   };
 };
@@ -128,8 +83,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onIncrement: () => dispatch(actionCreators.incrementCounter()),
     onDecrement: () => dispatch(actionCreators.decrementCounter()),
-    // onAuthenticated: () => dispatch(actionCreators.authenticated()),
-    // onAddGlobalBooks: (books) => dispatch(actionCreators.addGlobalBooks(books)),
     onAddCartBooks: (cartBooks) =>
       dispatch(actionCreators.addCartBooks(cartBooks)),
     onRemoveCartBooks: (cartBooks) =>

@@ -11,7 +11,6 @@ router.use(bodyParser.json());
 
 router.get("/", (req, res) => {
   models.Book.findAll().then((books) => {
-    console.log(books);
     res.json(books);
   });
 });

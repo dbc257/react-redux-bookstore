@@ -1,4 +1,4 @@
-import * as actionCreators from "../store/creators/actionCreators";
+// import * as actionCreators from "../store/creators/actionCreators";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
@@ -9,22 +9,26 @@ export default function (ComposedComponent) {
       super(props);
 
       // if the user is NOT authenticated then
-      if (!this.props.isLoggedIn) {
+      if (this.props.isLoggedIn === false) {
         // send the user to the login component
         this.props.history.push("/");
       }
     }
-
     render() {
       return <ComposedComponent {...this.props} />;
     }
   }
-
-  const mapStateToProps = (dispatch) => {
+  const mapStateToProps = (state) => {
     return {
-      onAuthenticated: () => dispatch(actionCreators.authenticated(true)),
+      isLoggedIn: state.isLoggedIn,
     };
   };
-
-  return connect(null, mapStateToProps)(Authenticate);
+  return connect(mapStateToProps)(Authenticate);
 }
+// const mapStateToProps = (dispatch) => {
+//   return {
+//     onAuthenticated: () => dispatch(actionCreators.authenticated(true)),
+//   };
+// };
+
+// return connect(null, mapStateToProps)(Authenticate);

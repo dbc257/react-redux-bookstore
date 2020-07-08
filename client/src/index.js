@@ -16,7 +16,7 @@ import Login from "./Pages/Login.page";
 import HomeNoAuth from "./Pages/HomeNoAuth.page";
 import Signout from "./Pages/Signout.page";
 import { setAuthenticationHeader } from "./utils/Auth";
-//import requireAuth from "./components/requireAuth";
+import requireAuth from "./components/requireAuth";
 
 import cartReducer from "./store/reducers/cart";
 import loginReducer from "./store/reducers/login";
@@ -47,16 +47,16 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route exact path="/" component={HomeNoAuth} />
-            {/* <Route exact path="/AddBook" component={requireAuth(AddBook)} />
-            <Route exact path="/Edit/:id" component={requireAuth(Edit)} /> */}
-            <Route exact path="/AddBook" component={AddBook} />
-            <Route exact path="/Edit/:id" component={Edit} />
+            <Route exact path="/AddBook" component={requireAuth(AddBook)} />
+            <Route exact path="/Edit/:id" component={requireAuth(Edit)} />
+            {/* <Route exact path="/AddBook" component={AddBook} />
+            <Route exact path="/Edit/:id" component={Edit} /> */}
             <Route exact path="/Register" component={Register} />
             <Route exact path="/Fiction" component={Fiction} />
             <Route exact path="/Nonfiction" component={Nonfiction} />
             <Route exact path="/AllGenres" component={AllGenres} />
-            {/* <Route exact path="/Cart" component={requireAuth(Cart)} /> */}
-            <Route exact path="/Cart" component={Cart} />
+            <Route exact path="/Cart" component={requireAuth(Cart)} />
+            {/* <Route exact path="/Cart" component={Cart} /> */}
             <Route exact path="/Login" component={Login} />
             <Route exact path="/Home" component={HomeNoAuth} />
             <Route exact path="/Signout" component={Signout} />

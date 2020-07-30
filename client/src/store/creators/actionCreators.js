@@ -14,7 +14,7 @@ export const decrementCounter = () => {
 
 export const booksLoaded = () => {
   return (dispatch) => {
-    fetch("http://localhost:3001/api-books")
+    fetch("https://bookstrap-bookstore-server.herokuapp.com/api-books")
       .then((response) => response.json())
       .then((json) => {
         console.log(json);

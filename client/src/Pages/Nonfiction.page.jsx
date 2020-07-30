@@ -7,7 +7,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 function Nonfiction(props) {
   const [books, setBooks] = useState([]);
   let fetchBooks = () => {
-    fetch("http://localhost:3001/nonfiction")
+    fetch("https://bookstrap-bookstore-server.herokuapp.com/nonfiction")
       .then((response) => response.json())
       .then((result) => {
         setBooks(result);

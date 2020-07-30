@@ -8,7 +8,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const BootstrapCardNoAuth = (props) => {
   const deletePost = () => {
     let id = props.books.id;
-    fetch("http://localhost:3001/delete", {
+    fetch("https://bookstrap-bookstore-server.herokuapp.com/delete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

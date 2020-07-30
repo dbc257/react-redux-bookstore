@@ -16,7 +16,7 @@ function AddUser(props) {
   }
 
   function handleRegisterPost() {
-    fetch("http://localhost:3001/register", {
+    fetch("https://bookstrap-bookstore-server.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default AddUser;
 
 // const handleLoginPost = () => {
 //   console.log(username);
-//   fetch("http://localhost:3001/login", {
+//   fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",

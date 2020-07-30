@@ -19,7 +19,7 @@ function Login(props) {
   }
 
   function guestLoginPost() {
-    fetch("http://localhost:3001/login", {
+    fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Login(props) {
 
   function handleLoginPost() {
     axios
-      .post("http://localhost:3001/api/login", {
+      .post("https://bookstrap-bookstore-server.herokuapp.com/api/login", {
         username: user.username,
         password: user.password,
       })
@@ -114,7 +114,7 @@ export default connect(null, mapDispatchToProps)(Login);
 // }
 
 // const fetchLoginUser = () => {
-//   fetch("http://localhost:3001/login", {
+//   fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -135,7 +135,7 @@ export default connect(null, mapDispatchToProps)(Login);
 // const [username, setUsername] = useState("");
 // const [password, setPassword] = useState("");
 
-//   fetch("http://localhost:3001/login", {
+//   fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -162,7 +162,7 @@ export default connect(null, mapDispatchToProps)(Login);
 //   // perform a fetch request and pass username and password
 //   // to the server
 
-//   fetch("http://localhost:3001/api/login", {
+//   fetch("https://bookstrap-bookstore-server.herokuapp.com/api/login", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",

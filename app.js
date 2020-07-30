@@ -5,12 +5,12 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const models = require("./models");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded());
 
@@ -70,7 +70,10 @@ app.post("/api/login", (req, res) => {
       } else {
         if (persistedUser) {
           if (bcrypt.compareSync(password, persistedUser.password)) {
-            const token = jwt.sign({ username: username }, "keyboard cat");
+            const token = jwt.sign(
+              { username: username },
+              process.env.JWT_PASSWORD
+            );
             console.log(token);
             console.log("true");
             res.json({
@@ -89,7 +92,12 @@ app.post("/api/login", (req, res) => {
 });
 
 app.get("/guest", (req, res) => {
-  let guest = [{ username: "David", password: "1234" }];
+  let guest = [
+    {
+      username: process.env.REACT_APP_USERNAME,
+      password: process.env.REACT_APP_PASSWORD,
+    },
+  ];
   res.json(guest);
 });
 

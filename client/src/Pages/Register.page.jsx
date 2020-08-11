@@ -16,7 +16,7 @@ function AddUser(props) {
   }
 
   function handleRegisterPost() {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/register", {
+    fetch("https://react-redux-bookstore-server.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default AddUser;
 
 // const handleLoginPost = () => {
 //   console.log(username);
-//   fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
+//   fetch("https://react-redux-bookstore-server.herokuapp.com/login", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",

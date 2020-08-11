@@ -14,7 +14,7 @@ export const decrementCounter = () => {
 
 export const booksLoaded = () => {
   return (dispatch) => {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/api-books")
+    fetch("https://react-redux-bookstore-server.herokuapp.com/api-books")
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
@@ -49,5 +49,12 @@ export const authenticated = (auth) => {
   return {
     type: actionTypes.AUTHENTICATED,
     value: auth,
+  };
+};
+
+export const administrator = (admin) => {
+  return {
+    type: actionTypes.ADMINISTRATOR,
+    value: admin,
   };
 };

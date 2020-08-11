@@ -30,7 +30,7 @@ export default connect(null, mapDispatchToProps)(Signout);
 // }
 
 //   function handleLoginPost() {
-//     fetch("https://bookstrap-bookstore-server.herokuapp.com/login", {
+//     fetch("https://react-redux-bookstore-server.herokuapp.com/login", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",

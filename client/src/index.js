@@ -15,6 +15,7 @@ import Cart from "./Pages/Cart.page";
 import Login from "./Pages/Login.page";
 import HomeNoAuth from "./Pages/HomeNoAuth.page";
 import Signout from "./Pages/Signout.page";
+import HomeAdmin from "./Pages/HomeAdmin.page";
 import { setAuthenticationHeader } from "./utils/Auth";
 import requireAuth from "./components/requireAuth";
 
@@ -22,12 +23,14 @@ import cartReducer from "./store/reducers/cart";
 import loginReducer from "./store/reducers/login";
 import booksReducer from "./store/reducers/books";
 import counterReducer from "./store/reducers/counter";
+import adminReducer from "./store/reducers/admin";
 
 const rootReducer = combineReducers({
   cartRed: cartReducer,
   loginRed: loginReducer,
   booksRed: booksReducer,
   counterRed: counterReducer,
+  adminRed: adminReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -58,7 +61,8 @@ ReactDOM.render(
             <Route exact path="/Cart" component={requireAuth(Cart)} />
             {/* <Route exact path="/Cart" component={Cart} /> */}
             <Route exact path="/Login" component={Login} />
-            <Route exact path="/Home" component={HomeNoAuth} />
+            {/* <Route exact path="/Home" component={HomeNoAuth} /> */}
+            <Route exact path="/Admin" component={requireAuth(HomeAdmin)} />
             <Route exact path="/Signout" component={Signout} />
           </Switch>
         </BaseLayout>

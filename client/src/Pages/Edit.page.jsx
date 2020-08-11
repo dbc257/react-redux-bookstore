@@ -5,7 +5,7 @@ function Edit(props) {
   const [book, setBook] = useState({});
 
   function handleUpdateBookPost() {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/edit", {
+    fetch("https://react-redux-bookstore-server.herokuapp.com/edit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function Edit(props) {
 
   useEffect(() => {
     fetch(
-      "https://bookstrap-bookstore-server.herokuapp.com/edit/" +
+      "https://react-redux-bookstore-server.herokuapp.com/edit/" +
         props.match.params.id
     )
       .then((response) => response.json())

@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, null)(CartBooks);
 
 // let fetchBooks = () => {
-//   fetch("https://bookstrap-bookstore-server.herokuapp.com/")
+//   fetch("https://react-redux-bookstore-server.herokuapp.com/")
 //     .then((response) => response.json())
 //     .then((result) => {
 //       setBooks(result);
@@ -86,7 +86,7 @@ export default connect(mapStateToProps, null)(CartBooks);
 // function CartBooks(props) {
 //   const [books, setBooks] = useState([]);
 //   let fetchCartBooks = () => {
-//     fetch("https://bookstrap-bookstore-server.herokuapp.com/cart")
+//     fetch("https://react-redux-bookstore-server.herokuapp.com/cart")
 //       .then((response) => response.json())
 //       .then((result) => {
 //         setCartBooks(result);
@@ -101,7 +101,7 @@ export default connect(mapStateToProps, null)(CartBooks);
 // }, []);
 
 // const fetchBooks = () => {
-//   fetch("https://bookstrap-bookstore-server.herokuapp.com/")
+//   fetch("https://react-redux-bookstore-server.herokuapp.com/")
 //     .then((response) => response.json())
 //     .then((result) => {
 //       setBooks(result);

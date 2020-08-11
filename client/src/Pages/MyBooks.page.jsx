@@ -8,7 +8,7 @@ function MyBooks() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/")
+    fetch("https://react-redux-bookstore-server.herokuapp.com/")
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -19,7 +19,7 @@ function MyBooks() {
   useEffect(() => {
     const token = localStorage.getItem("jsonwebtoken");
 
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/api/my-books", {
+    fetch("https://react-redux-bookstore-server.herokuapp.com/api/my-books", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -63,7 +63,7 @@ export default MyBooks;
 //     };
 //   }
 //   componentDidMount() {
-//     fetch("https://bookstrap-bookstore-server.herokuapp.com/books")
+//     fetch("https://react-redux-bookstore-server.herokuapp.com/books")
 //       .then((response) => response.json())
 //       .then((bookResults) => {
 //         console.log(bookResults);

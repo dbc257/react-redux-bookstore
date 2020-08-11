@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import BootstrapCardNoAuth from "../components/BootstrapCardNoAuth.component";
 import CardDeck from "react-bootstrap/CardDeck";
-// import { LinkContainer } from "react-router-bootstrap";
 
-function AllGenres() {
+function HomeAdmin() {
   const [books, setBooks] = useState([]);
+
   let fetchBooks = () => {
     fetch("https://react-redux-bookstore-server.herokuapp.com/")
       .then((response) => response.json())
@@ -12,6 +12,7 @@ function AllGenres() {
         setBooks(result);
       });
   };
+
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -34,4 +35,4 @@ function AllGenres() {
   );
 }
 
-export default AllGenres;
+export default HomeAdmin;

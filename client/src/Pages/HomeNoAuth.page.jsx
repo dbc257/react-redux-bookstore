@@ -8,7 +8,7 @@ function HomeNoAuth() {
   const [books, setBooks] = useState([]);
   // const [cartBooks, setCartBooks] = useState([]);
   let fetchBooks = () => {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/")
+    fetch("https://react-redux-bookstore-server.herokuapp.com/")
       .then((response) => response.json())
       .then((result) => {
         // props.onAddGlobalBooks(result);

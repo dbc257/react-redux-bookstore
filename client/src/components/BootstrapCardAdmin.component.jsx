@@ -3,24 +3,24 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
-// import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
-const BootstrapCardNoAuth = (props) => {
-  // const deletePost = () => {
-  //   let id = props.books.id;
-  //   fetch("https://react-redux-bookstore-server.herokuapp.com/delete", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ id: id }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       alert(response.message);
-  //       props.fetchBooks();
-  //     });
-  // };
+const BootstrapCardAdmin = (props) => {
+  const deletePost = () => {
+    let id = props.books.id;
+    fetch("https://react-redux-bookstore-server.herokuapp.com/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        alert(response.message);
+        props.fetchBooks();
+      });
+  };
 
   const handleAddCartBook = () => {
     let cartBook = props.books;
@@ -28,7 +28,7 @@ const BootstrapCardNoAuth = (props) => {
     props.onAddCartBooks(cartBook);
   };
 
-  // const editLink = "/Edit/" + props.books.id;
+  const editLink = "/Edit/" + props.books.id;
 
   return (
     <>
@@ -56,14 +56,14 @@ const BootstrapCardNoAuth = (props) => {
                 <Nav.Link>
                   <button onClick={handleAddCartBook}>Add To Cart</button>
                 </Nav.Link>
-                {/* <LinkContainer to={editLink}>
+                <LinkContainer to={editLink}>
                   <Nav.Link>
                     <button>Edit Book</button>
                   </Nav.Link>
                 </LinkContainer>
                 <Nav.Link>
                   <button onClick={deletePost}>Delete</button>
-                </Nav.Link> */}
+                </Nav.Link>
               </small>
             </Card.Footer>
           ) : null}
@@ -89,7 +89,4 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionCreators.removeCartBooks(cartBooks)),
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BootstrapCardNoAuth);
+export default connect(mapStateToProps, mapDispatchToProps)(BootstrapCardAdmin);

@@ -40,19 +40,19 @@ const Header = (props) => {
             </LinkContainer> */}
           </NavDropdown>
         ) : null}
-        <LinkContainer to="/">
+        {/* <LinkContainer to="/">
           <Nav.Link>Home</Nav.Link>
-        </LinkContainer>
-        {/* {props.isLoggedIn ? (
-          <LinkContainer to="/Home">
-            <Nav.Link>Home</Nav.Link>
+        </LinkContainer> */}
+        {props.isAdmin ? (
+          <LinkContainer to="/Admin">
+            <Nav.Link>Admin</Nav.Link>
           </LinkContainer>
         ) : (
           <LinkContainer to="/">
             <Nav.Link>Home</Nav.Link>
           </LinkContainer>
-        )} */}
-        {props.isLoggedIn ? (
+        )}
+        {props.isAdmin ? (
           <LinkContainer to="/AddBook">
             <Nav.Link>Add Book</Nav.Link>
           </LinkContainer>
@@ -92,7 +92,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    // books: state.booksRed.books,
+    isAdmin: state.adminRed.isAdmin,
     isLoggedIn: state.loginRed.isLoggedIn,
     counter: state.counterRed.counter,
   };

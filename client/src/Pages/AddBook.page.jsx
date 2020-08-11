@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function AddBook(props) {
   const [book, setBook] = useState({});
   let fetchAddBook = () => {
-    fetch("https://bookstrap-bookstore-server.herokuapp.com/add-book", {
+    fetch("https://react-redux-bookstore-server.herokuapp.com/add-book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BootstrapCardNoAuth from "../components/BootstrapCardNoAuth.component";
-import CardDeck from "react-bootstrap/CardDeck";
-// import { LinkContainer } from "react-router-bootstrap";
+import CardColumns from "react-bootstrap/CardColumns";
 
 function AllGenres() {
   const [books, setBooks] = useState([]);
@@ -18,7 +17,7 @@ function AllGenres() {
   return (
     <>
       <div className="App container">
-        <CardDeck>
+        <CardColumns>
           {books.map((bookLoop, index) => {
             return (
               <BootstrapCardNoAuth
@@ -28,7 +27,7 @@ function AllGenres() {
               />
             );
           })}
-        </CardDeck>
+        </CardColumns>
       </div>
     </>
   );

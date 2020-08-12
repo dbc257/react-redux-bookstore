@@ -1,14 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
+import { setAuthenticationHeader } from "../utils/Auth";
+import Card from "react-bootstrap/Card";
+import { LinkContainer } from "react-router-bootstrap";
+import Button from "react-bootstrap/Button";
 
 function Signout(props) {
-  // const [user, setUser] = useState({});
-  props.onAuthenticated(false);
+  props.onAuthenticated();
+  props.onAdministrator();
+  localStorage.removeItem("jsonwebtoken");
+  localStorage.removeItem("jwt_access_token");
+  setAuthenticationHeader(null);
 
   return (
     <div>
-      <h1>You are signed out!</h1>
+      <Card>
+        <Card.Header className="text-center" as="h1">
+          You are signed out!
+        </Card.Header>
+        <Card.Body>
+          <Card.Text className="text-center">
+            <LinkContainer to="/">
+              <Button variant="primary" size="lg" type="submit">
+                Home
+              </Button>
+            </LinkContainer>
+            <p></p>
+            <LinkContainer to="/Login">
+              <Button variant="success" size="lg" type="submit">
+                Login
+              </Button>
+            </LinkContainer>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
@@ -16,6 +42,7 @@ function Signout(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAuthenticated: () => dispatch(actionCreators.authenticated(false)),
+    onAdministrator: () => dispatch(actionCreators.administrator(false)),
   };
 };
 // export default Signout;

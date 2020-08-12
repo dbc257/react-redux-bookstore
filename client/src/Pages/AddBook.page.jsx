@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-// import { connect } from "react-redux";
-// import * as actionCreators from "../store/creators/actionCreators";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 function AddBook(props) {
   const [book, setBook] = useState({});
@@ -30,54 +32,79 @@ function AddBook(props) {
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="imageURL"
-        name="imageURLTextBox"
-        onChange={handleAddBook}
-      ></input>
-      <input
-        type="text"
-        placeholder="Title"
-        name="titleTextBox"
-        onChange={handleAddBook}
-      ></input>
-      <input
-        type="text"
-        placeholder="Genre"
-        name="genreTextBox"
-        onChange={handleAddBook}
-      ></input>
-      <input
-        type="text"
-        placeholder="Publisher"
-        name="publisherTextBox"
-        onChange={handleAddBook}
-      ></input>
-      <input
-        type="text"
-        placeholder="Year"
-        name="yearTextBox"
-        onChange={handleAddBook}
-      ></input>
-      <button onClick={handleAddBookPost}>Add Book</button>
-    </div>
+    <Card>
+      <Card.Header className="text-center" as="h4">
+        Add Book
+      </Card.Header>
+      <Card.Body>
+        <InputGroup size="lg">
+          <FormControl
+            type="text"
+            placeholder="Image URL"
+            name="imageURLTextBox"
+            onChange={handleAddBook}
+            required
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+        <br />
+        <InputGroup size="lg">
+          <FormControl
+            type="text"
+            placeholder="Password"
+            name="titleTextBox"
+            onChange={handleAddBook}
+            required
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+        <br />
+        <InputGroup size="lg">
+          <FormControl
+            type="text"
+            placeholder="Genre"
+            name="genreTextBox"
+            onChange={handleAddBook}
+            required
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+        <br />
+        <InputGroup size="lg">
+          <FormControl
+            type="text"
+            placeholder="Publisher"
+            name="publisherTextBox"
+            onChange={handleAddBook}
+            required
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+        <br />
+        <InputGroup size="lg">
+          <FormControl
+            type="text"
+            placeholder="Year"
+            name="yearTextBox"
+            onChange={handleAddBook}
+            required
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+        <br />
+        <Card.Text className="text-center">
+          <Button variant="primary" size="lg" onClick={handleAddBookPost}>
+            Submit
+          </Button>
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     // global state counter is now available in property called ctr
-//     totalCartItems: state.counterRed.counter,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onIncrement: () => dispatch(actionCreators.incrementCounter()),
-//     onDecrement: () => dispatch(actionCreators.decrementCounter()),
-//   };
-// };
 export default AddBook;
-//export default connect(mapStateToProps, null)(AddBook);

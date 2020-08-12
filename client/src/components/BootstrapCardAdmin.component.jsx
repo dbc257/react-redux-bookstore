@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
 import { LinkContainer } from "react-router-bootstrap";
+import Button from "react-bootstrap/Button";
 
 const BootstrapCardAdmin = (props) => {
   const deletePost = () => {
@@ -54,15 +55,15 @@ const BootstrapCardAdmin = (props) => {
             <Card.Footer>
               <small className="text-muted">
                 <Nav.Link>
-                  <button onClick={handleAddCartBook}>Add To Cart</button>
+                  <Button onClick={handleAddCartBook}>Add To Cart</Button>
                 </Nav.Link>
                 <LinkContainer to={editLink}>
                   <Nav.Link>
-                    <button>Edit Book</button>
+                    <Button>Edit Book</Button>
                   </Nav.Link>
                 </LinkContainer>
                 <Nav.Link>
-                  <button onClick={deletePost}>Delete</button>
+                  <Button onClick={deletePost}>Delete</Button>
                 </Nav.Link>
               </small>
             </Card.Footer>

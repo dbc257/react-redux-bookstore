@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
 import axios from "axios";
 import { setAuthenticationHeader } from "../utils/Auth";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 function Login(props) {
   const [user, setUser] = useState({});
@@ -28,7 +32,8 @@ function Login(props) {
 
   function handleLoginPost() {
     axios
-      .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
+      // .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
+      .post("http://localhost:3001/api/login", {
         username: user.username,
         password: user.password,
       })
@@ -37,8 +42,7 @@ function Login(props) {
           const token = response.data.token;
           localStorage.setItem("jsonwebtoken", token);
           setAuthenticationHeader(token);
-          props.onAuthenticated(true);
-          props.onAdministrator(false);
+          props.onAuthenticated();
           alert(response.data.message);
           props.history.push("/");
         } else {
@@ -54,7 +58,8 @@ function Login(props) {
 
   function handleAdminPost() {
     axios
-      .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
+      // .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
+      .post("http://localhost:3001/api/login", {
         username: adminUser.adminUsername,
         password: adminUser.adminPassword,
       })
@@ -63,8 +68,8 @@ function Login(props) {
           const token = response.data.token;
           localStorage.setItem("jsonwebtoken", token);
           setAuthenticationHeader(token);
-          props.onAuthenticated(true);
-          props.onAdministrator(true);
+          props.onAuthenticated();
+          props.onAdministrator();
           alert(response.data.message);
           props.history.push("/Admin");
         } else {
@@ -89,7 +94,7 @@ function Login(props) {
       .then((res) => res.json())
       .then((response) => {
         if (response.success) {
-          props.onAuthenticated(true);
+          props.onAuthenticated();
           alert(response.message);
           props.history.push("/");
         } else {
@@ -103,53 +108,113 @@ function Login(props) {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Login Page</h1>
-      </div>
-      <br></br>
-      <div>
-        <h2>User Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          onChange={handleLogin}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={handleLogin}
-          required
-        />
-        <button onClick={handleLoginPost}>Login</button>
-      </div>
-      <br></br>
-      <div>
-        <h2>Administrator Login</h2>
-        <input
-          type="text"
-          placeholder="Admin Username"
-          name="adminUsername"
-          onChange={handleAdminLogin}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Admin Password"
-          name="adminPassword"
-          onChange={handleAdminLogin}
-          required
-        />
-        <button onClick={handleAdminPost}>Admin Login</button>
-      </div>
-      <br></br>
-      <div>
-        <button onClick={guestLoginPost}>Guest Login</button>
-      </div>
-    </div>
+    <>
+      <>
+        <Card>
+          <Card.Header className="text-center" as="h1">
+            Login Page
+          </Card.Header>
+          <Card.Body>
+            <Card.Text className="text-center">
+              <Button
+                variant="primary"
+                size="lg"
+                type="submit"
+                onClick={guestLoginPost}
+              >
+                Guest Login
+              </Button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </>
+      <>
+        <Card>
+          <Card.Body>
+            <Card.Title className="text-center" as="h3">
+              User Login
+            </Card.Title>
+            <InputGroup size="lg">
+              <FormControl
+                type="text"
+                placeholder="Username"
+                name="username"
+                onChange={handleLogin}
+                required
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </InputGroup>
+            <br />
+            <InputGroup size="lg">
+              <FormControl
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleLogin}
+                required
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </InputGroup>
+            <br />
+            <Card.Text className="text-center">
+              <Button
+                variant="success"
+                size="lg"
+                type="submit"
+                onClick={handleLoginPost}
+              >
+                Submit User Login
+              </Button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </>
+      <>
+        <Card>
+          <Card.Body>
+            <Card.Title className="text-center" as="h3">
+              Admin Login
+            </Card.Title>
+            <InputGroup size="lg">
+              <FormControl
+                type="text"
+                placeholder="Admin Username"
+                name="adminUsername"
+                onChange={handleAdminLogin}
+                required
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </InputGroup>
+            <br />
+            <InputGroup size="lg">
+              <FormControl
+                type="password"
+                placeholder="Admin Password"
+                name="adminPassword"
+                onChange={handleAdminLogin}
+                required
+                aria-label="Large"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </InputGroup>
+            <br />
+            <Card.Text className="text-center">
+              <Button
+                variant="dark"
+                size="lg"
+                type="submit"
+                onClick={handleAdminPost}
+              >
+                Submit Admin Login
+              </Button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </>
+    </>
   );
 }
 
@@ -159,86 +224,5 @@ const mapDispatchToProps = (dispatch) => {
     onAdministrator: () => dispatch(actionCreators.administrator(true)),
   };
 };
-// export default Login;
+
 export default connect(null, mapDispatchToProps)(Login);
-
-// const[email, setEmail] = useState("")
-// const[password, setPassword] = useState("")
-
-// function handleLogin(e) {
-//   setUser({
-//     ...user,
-//     [e.target.name]: e.target.value,
-//   });
-// }
-
-// const fetchLoginUser = () => {
-//   fetch("https://react-redux-bookstore-server.herokuapp.com/login", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(user),
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       alert(response.message);
-//       // props.history.push("/Register");
-//     });
-
-//   function handleLoginPost() {
-//     fetchLoginUser();
-//     props.onAuthenticated(true);
-//   }
-
-// const [username, setUsername] = useState("");
-// const [password, setPassword] = useState("");
-
-//   fetch("https://react-redux-bookstore-server.herokuapp.com/login", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(user),
-//   })
-//     .then((res) => res.json())
-//     .then((response) => {
-//       if (response.success) {
-//         props.onAuthenticated(true);
-//         alert(response.message);
-//         props.history.push("/");
-//       } else {
-//         alert(response.message);
-//         setUser({
-//           ...user,
-//           password: "",
-//         });
-//       }
-//     });
-// }
-
-// const handleJWTLogin = () => {
-//   // perform a fetch request and pass username and password
-//   // to the server
-
-//   fetch("https://react-redux-bookstore-server.herokuapp.com/api/login", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(user),
-//   })
-//     .then((response) => response.json())
-//     .then((result) => {
-//       if (result.success) {
-//         // save the token in local storage
-//         localStorage.setItem("jsonwebtoken", result.token);
-//       } else {
-//         // print out a message saying login failed
-//       }
-//     });
-// };
-
-//import { LinkContainer } from "react-router-bootstrap";
-// import BootstrapCard from "./components/BootstrapCard.component";
-// import Button from "react-bootstrap/Button";

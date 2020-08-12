@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
+import Button from "react-bootstrap/Button";
 
 const BootstrapCardCart = (props) => {
   const handleRemoveCartBook = () => {
@@ -37,9 +38,9 @@ const BootstrapCardCart = (props) => {
             <Card.Footer>
               <small className="text-muted">
                 <Nav.Link>
-                  <button onClick={handleRemoveCartBook}>
+                  <Button onClick={handleRemoveCartBook}>
                     Remove From Cart
-                  </button>
+                  </Button>
                 </Nav.Link>
               </small>
             </Card.Footer>

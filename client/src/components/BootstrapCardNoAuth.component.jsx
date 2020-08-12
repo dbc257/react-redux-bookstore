@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/creators/actionCreators";
+import Button from "react-bootstrap/Button";
 // import { LinkContainer } from "react-router-bootstrap";
 
 const BootstrapCardNoAuth = (props) => {
@@ -33,7 +34,7 @@ const BootstrapCardNoAuth = (props) => {
   return (
     <>
       <div>
-        <Card id={props.books.id}>
+        <Card variant="light" id={props.books.id}>
           <Card.Img
             style={{ width: 200 }}
             variant="top"
@@ -54,7 +55,7 @@ const BootstrapCardNoAuth = (props) => {
             <Card.Footer>
               <small className="text-muted">
                 <Nav.Link>
-                  <button onClick={handleAddCartBook}>Add To Cart</button>
+                  <Button onClick={handleAddCartBook}>Add To Cart</Button>
                 </Nav.Link>
                 {/* <LinkContainer to={editLink}>
                   <Nav.Link>
@@ -69,6 +70,7 @@ const BootstrapCardNoAuth = (props) => {
           ) : null}
         </Card>
       </div>
+      <br />
     </>
   );
 };

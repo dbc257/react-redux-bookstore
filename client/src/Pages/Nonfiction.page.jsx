@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BootstrapCardNoAuth from "../components/BootstrapCardNoAuth.component";
-import CardDeck from "react-bootstrap/CardDeck";
-// import { connect } from "react-redux";
-// import * as actionCreators from "../store/creators/actionCreators";
+import CardColumns from "react-bootstrap/CardColumns";
 
 function Nonfiction(props) {
   const [books, setBooks] = useState([]);
@@ -19,7 +17,7 @@ function Nonfiction(props) {
   return (
     <>
       <div className="App container">
-        <CardDeck>
+        <CardColumns>
           {books.map((bookLoop, index) => {
             return (
               <BootstrapCardNoAuth
@@ -29,17 +27,10 @@ function Nonfiction(props) {
               />
             );
           })}
-        </CardDeck>
+        </CardColumns>
       </div>
     </>
   );
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     // global state counter is now available in property called books
-//     books: state.booksRed.books,
-//   };
-// };
 export default Nonfiction;
-// export default connect(mapStateToProps, null)(Nonfiction);

@@ -24,54 +24,80 @@ const Header = (props) => {
       </LinkContainer>
       <Nav className="mr-auto">
         {props.isLoggedIn ? (
-          <NavDropdown title="Filter By Genre" id="basic-nav-dropdown">
-            <LinkContainer to="/Fiction">
-              <NavDropdown.Item>Fiction</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to="/Nonfiction">
-              <NavDropdown.Item>Nonfiction</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to="/AllGenres">
-              <NavDropdown.Item>View All Genres</NavDropdown.Item>
-            </LinkContainer>
-            {/* <NavDropdown.Divider />
+          <Button variant="dark">
+            <NavDropdown title="Filter By Genre" id="basic-nav-dropdown">
+              <LinkContainer to="/Fiction">
+                <NavDropdown.Item>Fiction</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/Nonfiction">
+                <NavDropdown.Item>Nonfiction</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/AllGenres">
+                <NavDropdown.Item>View All Genres</NavDropdown.Item>
+              </LinkContainer>
+              {/* <NavDropdown.Divider />
             <LinkContainer to="/">
               <NavDropdown.Item>View All Genres</NavDropdown.Item>
             </LinkContainer> */}
-          </NavDropdown>
+            </NavDropdown>
+          </Button>
         ) : null}
         {/* <LinkContainer to="/">
           <Nav.Link>Home</Nav.Link>
         </LinkContainer> */}
         {props.isAdmin ? (
           <LinkContainer to="/Admin">
-            <Nav.Link>Admin</Nav.Link>
+            <Nav.Link>
+              <Button variant="dark">Admin</Button>
+            </Nav.Link>
           </LinkContainer>
         ) : (
           <LinkContainer to="/">
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>
+              <Button variant="dark">Home</Button>
+            </Nav.Link>
           </LinkContainer>
         )}
         {props.isAdmin ? (
           <LinkContainer to="/AddBook">
-            <Nav.Link>Add Book</Nav.Link>
+            <Nav.Link>
+              <Button variant="dark">Add Book</Button>
+            </Nav.Link>
           </LinkContainer>
         ) : null}
         {props.isLoggedIn ? null : (
           <LinkContainer to="/Login">
-            <Nav.Link>Login</Nav.Link>
+            <Nav.Link>
+              <Button variant="dark">Login</Button>
+            </Nav.Link>
           </LinkContainer>
         )}
-        {props.isLoggedIn ? null : (
+        {/* {props.isLoggedIn ? null : (
           <LinkContainer to="/Register">
             <Nav.Link>Add User</Nav.Link>
           </LinkContainer>
-        )}
+        )} */}
+        {/* <Button
+                            variant="link"
+                            size="sm"
+                            onClick={this.handleSignOut}
+                            className="nav-link"
+                          >
+                            <a className="nav-link">Signout</a>
+                          </Button> */}
         {props.isLoggedIn ? (
           <LinkContainer to="/Signout">
-            <Nav.Link>Signout</Nav.Link>
+            <Nav.Link>
+              <Button variant="dark">Signout</Button>
+            </Nav.Link>
           </LinkContainer>
-        ) : null}
+        ) : (
+          <LinkContainer to="/Register">
+            <Nav.Link>
+              <Button variant="dark">Register</Button>
+            </Nav.Link>
+          </LinkContainer>
+        )}
       </Nav>
       {props.isLoggedIn ? (
         <LinkContainer to="/Cart">
@@ -100,10 +126,8 @@ const mapStateToProps = (state) => {
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
-//     onIncrement: () => dispatch(actionCreators.incrementCounter()),
-//     onDecrement: () => dispatch(actionCreators.decrementCounter()),
-//     onAuthenticated: () => dispatch(actionCreators.authenticated()),
-//     onAddGlobalBooks: (books) => dispatch(actionCreators.addGlobalBooks(books)),
+//     onAuthenticated: () => dispatch(actionCreators.authenticated(false)),
+//     onAdministrator: () => dispatch(actionCreators.administrator(false)),
 //   };
 // };
 export default connect(mapStateToProps, null)(Header);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import BootstrapCardNoAuth from "../components/BootstrapCardNoAuth.component";
-import CardDeck from "react-bootstrap/CardDeck";
+import BootstrapCardAdmin from "../components/BootstrapCardAdmin.component";
+import CardColumns from "react-bootstrap/CardColumns";
 
 function HomeAdmin() {
   const [books, setBooks] = useState([]);
@@ -19,17 +19,17 @@ function HomeAdmin() {
   return (
     <>
       <div className="App container">
-        <CardDeck>
+        <CardColumns>
           {books.map((bookLoop, index) => {
             return (
-              <BootstrapCardNoAuth
+              <BootstrapCardAdmin
                 key={index}
                 books={bookLoop}
                 fetchBooks={fetchBooks}
               />
             );
           })}
-        </CardDeck>
+        </CardColumns>
       </div>
     </>
   );

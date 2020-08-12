@@ -165,7 +165,7 @@ function Login(props) {
                 type="submit"
                 onClick={handleLoginPost}
               >
-                Submit User Login
+                User Login
               </Button>
             </Card.Text>
           </Card.Body>
@@ -208,7 +208,7 @@ function Login(props) {
                 type="submit"
                 onClick={handleAdminPost}
               >
-                Submit Admin Login
+                Admin Login
               </Button>
             </Card.Text>
           </Card.Body>

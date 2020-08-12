@@ -33,8 +33,9 @@ const BootstrapCardNoAuth = (props) => {
 
   return (
     <>
+      <br />
       <div>
-        <Card variant="light" id={props.books.id}>
+        <Card bg="light" id={props.books.id}>
           <Card.Img
             style={{ width: 200 }}
             variant="top"
@@ -70,7 +71,6 @@ const BootstrapCardNoAuth = (props) => {
           ) : null}
         </Card>
       </div>
-      <br />
     </>
   );
 };

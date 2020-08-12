@@ -15,6 +15,7 @@ const BootstrapCardCart = (props) => {
 
   return (
     <>
+      <br />
       <div>
         <Card id={props.books.id}>
           <Card.Img

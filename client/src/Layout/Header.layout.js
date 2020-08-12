@@ -35,16 +35,9 @@ const Header = (props) => {
               <LinkContainer to="/AllGenres">
                 <NavDropdown.Item>View All Genres</NavDropdown.Item>
               </LinkContainer>
-              {/* <NavDropdown.Divider />
-            <LinkContainer to="/">
-              <NavDropdown.Item>View All Genres</NavDropdown.Item>
-            </LinkContainer> */}
             </NavDropdown>
           </Button>
         ) : null}
-        {/* <LinkContainer to="/">
-          <Nav.Link>Home</Nav.Link>
-        </LinkContainer> */}
         {props.isAdmin ? (
           <LinkContainer to="/Admin">
             <Nav.Link>
@@ -72,19 +65,6 @@ const Header = (props) => {
             </Nav.Link>
           </LinkContainer>
         )}
-        {/* {props.isLoggedIn ? null : (
-          <LinkContainer to="/Register">
-            <Nav.Link>Add User</Nav.Link>
-          </LinkContainer>
-        )} */}
-        {/* <Button
-                            variant="link"
-                            size="sm"
-                            onClick={this.handleSignOut}
-                            className="nav-link"
-                          >
-                            <a className="nav-link">Signout</a>
-                          </Button> */}
         {props.isLoggedIn ? (
           <LinkContainer to="/Signout">
             <Nav.Link>
@@ -108,10 +88,6 @@ const Header = (props) => {
           </Button>
         </LinkContainer>
       ) : null}
-      {/* <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
-        </Form> */}
     </Navbar>
   );
 };
@@ -124,25 +100,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onAuthenticated: () => dispatch(actionCreators.authenticated(false)),
-//     onAdministrator: () => dispatch(actionCreators.administrator(false)),
-//   };
-// };
 export default connect(mapStateToProps, null)(Header);
-
-// {props.isLoggedIn ?<LinkContainer to="/Home">
-//     <Nav.Link>Home</Nav.Link>
-//   </LinkContainer>:<LinkContainer to="/">
-// <Nav.Link>Home</Nav.Link>
-// </LinkContainer>}
-// {props.isLoggedIn ? <h1>Logged In</h1> : <h1>Not Logged In</h1>}
-
-// import * as actionCreators from "../store/creators/actionCreators";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import NavbarBrand from "react-bootstrap/NavbarBrand";
-// import "./App.css";
-// import logo from "./logo.svg";
-// import { NavLink } from "react-router-dom";

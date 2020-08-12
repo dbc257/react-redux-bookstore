@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import React from "react";
 
 function Edit(props) {
   const [book, setBook] = useState({});

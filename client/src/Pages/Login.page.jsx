@@ -32,8 +32,8 @@ function Login(props) {
 
   function handleLoginPost() {
     axios
-      // .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
-      .post("http://localhost:3001/api/login", {
+      .post("https://react-redux-bookstore-server.herokuapp.com/login/user", {
+        // .post("http://localhost:3001/login/user", {
         username: user.username,
         password: user.password,
       })
@@ -58,8 +58,8 @@ function Login(props) {
 
   function handleAdminPost() {
     axios
-      // .post("https://react-redux-bookstore-server.herokuapp.com/api/login", {
-      .post("http://localhost:3001/api/login", {
+      .post("https://react-redux-bookstore-server.herokuapp.com/login/admin", {
+        // .post("http://localhost:3001/login/admin", {
         username: adminUser.adminUsername,
         password: adminUser.adminPassword,
       })
@@ -84,7 +84,7 @@ function Login(props) {
   }
 
   function guestLoginPost() {
-    fetch("https://react-redux-bookstore-server.herokuapp.com/login", {
+    fetch("https://react-redux-bookstore-server.herokuapp.com/login/guest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

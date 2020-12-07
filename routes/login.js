@@ -5,6 +5,7 @@ var bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 const auth = require("../middlewares/authMiddleware.js");
+var jwt = require("jsonwebtoken");
 
 router.get("/guest", (req, res) => {
   let guest = [

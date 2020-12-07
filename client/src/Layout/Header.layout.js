@@ -38,7 +38,7 @@ const Header = (props) => {
             </NavDropdown>
           </Button>
         ) : null}
-        {props.isAdmin ? (
+        {props.isLoggedIn ? (
           <LinkContainer to="/Admin">
             <Nav.Link>
               <Button variant="dark">Admin</Button>
@@ -51,7 +51,7 @@ const Header = (props) => {
             </Nav.Link>
           </LinkContainer>
         )}
-        {props.isAdmin ? (
+        {props.isLoggedIn ? (
           <LinkContainer to="/AddBook">
             <Nav.Link>
               <Button variant="dark">Add Book</Button>
@@ -94,7 +94,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAdmin: state.adminRed.isAdmin,
+    // isAdmin: state.adminRed.isAdmin,
     isLoggedIn: state.loginRed.isLoggedIn,
     counter: state.counterRed.counter,
   };
